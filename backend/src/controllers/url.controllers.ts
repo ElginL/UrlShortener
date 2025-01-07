@@ -18,7 +18,6 @@ const shortenUrl = async (ctx) => {
     return;
   }
 
-  // TODO: Error handling
   const shortUrl = await urlService.generateShortUrl(longUrl);
   await urlService.addToDb(longUrl, shortUrl);
 

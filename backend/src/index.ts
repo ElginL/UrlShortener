@@ -5,6 +5,7 @@ const router = require("./router");
 const dataSrc = require("./db/dataSource");
 const constants = require("./constants");
 require("reflect-metadata");
+const errorHandler = require("./middleware/errorHandler");
 
 const App = new Koa();
 
@@ -15,6 +16,7 @@ dataSrc.initialize()
 App.use(parser())
     .use(cors())
     .use(router.routes())
+    .use(errorHandler)
     .listen(constants.APPLICATION_PORT, () => {
         console.log(`🚀 Server listening ${constants.BASE_URL}:${constants.APPLICATION_PORT}/ 🚀`);
     });
