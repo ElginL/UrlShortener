@@ -40,7 +40,7 @@ const longUrlExists = async (longUrl : string) : Promise<boolean> => {
 }
 
 const getShortUrlByLongUrl = async (longUrl: string) : Promise<string> => {
-    return await urlRepo.getShortUrl(longUrl)["shortUrl"];
+    return (await urlRepo.getShortUrl(longUrl))["shortUrl"];
 }
 
 const getLongUrlByShortUrl = async (shortUrl: string) : Promise<string> => {
